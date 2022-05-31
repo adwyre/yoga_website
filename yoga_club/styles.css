@@ -1,0 +1,284 @@
+body {
+    margin: 0;
+    font-family: 'Libre Baskerville', serif;
+    font-size: 18px;
+    color: white;
+    background-color: #1c1c1c;
+}
+
+header {
+    position: fixed;
+    display: flex;
+    width: 100%;
+    top: 0;
+    z-index: 10;
+    align-content: center;
+    justify-content: space-between;
+    height: 4rem;
+    background-color: tomato;
+}
+
+.heading {
+    font-size: 1.5rem;
+    font-style: italic;
+}
+
+.med-heading {
+    font-size: 3rem;
+}
+
+.lrg-heading {
+    font-size: 4rem;
+}
+
+.bold {
+    font-weight: 700;
+}
+
+button {
+    background-color: tomato;
+    border-radius: 5px;
+    font-size: 1rem;
+    font-family: 'Libre Baskerville', serif;
+    font-weight: 700;
+    border: none;
+    color: white;
+}
+
+/* Nav */
+header .nav-icon {
+    display: flex;
+    flex-direction: row;
+    width: 50px;
+    margin-left: 15px;
+}
+header img {
+    height: 32px;
+    margin: auto 5px;
+}
+#nav-links {
+    display: flex;
+    flex-direction: row;
+    width: fit-content;
+}
+header ul {
+    list-style: none;
+    padding: 0;
+    margin-right: 12px;
+}
+header li {
+    display: inline;
+    margin-right: 10px;
+}
+header a {
+    text-decoration: none;
+    color: white;
+}
+header button {
+    margin-top: 10px;
+    width: 150px;
+    height: 40px;
+    border: 1px solid white;
+    margin-right: 20px;
+}
+header button:hover {
+    background-color: white;
+    color: tomato;
+}
+
+
+/* Grid */
+#main {
+    margin-top: 4rem;
+    display: block;
+    width: 100%;
+    height: 2000px;
+}
+
+/* Welcome */
+#welcome {
+    height: 38%;
+    display: grid;
+    grid-template-rows: 22.5% 1fr 1fr 22.5%;
+    grid-template-columns: 8% 2fr 0.5fr 2fr 8%;
+    grid-template-areas: ". . . . ."
+                         ". d . h ."
+                         ". d . . ."
+                         ". . . . .";
+}
+@media only screen and (max-width: 900px) {
+    header button {
+        display: none;
+    }
+    #welcome {
+        display: grid;
+        grid-template-rows: 1fr 6fr 0.5fr 4.5fr;
+        grid-template-columns: 1fr 8fr 1fr;
+        grid-template-areas: "d d d"
+                             "d d d"
+                             ". . ."
+                             ". h .";
+    }
+    
+}
+#welcome div {
+    grid-area: d;
+    background-image: url(./images/namaste.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: block;
+    align-content: center;
+    justify-content: center;
+    padding-top: 40px;
+}
+
+#welcome .lrg-heading {
+    width: fit-content;
+    height: fit-content;
+    margin: auto;
+}
+
+#welcome p {
+    grid-area: h;
+}
+
+#welcome a {
+    display: block;
+    margin: auto;
+    width: fit-content;
+}
+
+#welcome button {
+    margin-top: 190px;
+    font-size: 1.2rem;
+    padding: 15px 80px;
+}
+#welcome button:hover {
+    background-color: firebrick;
+    color: darkgrey;
+}
+
+/* Events */
+#events {
+    height: 37.5%;
+    display: grid;
+    grid-template-rows: 1fr 1fr 1.3fr 1fr;
+    grid-template-columns: 1fr 4fr 1fr 6.5fr .5fr;
+    grid-template-areas: ". . . c ."
+                         ". e . c ."
+                         ". . . c ."
+                         ". . . . .";
+}
+
+#events p {
+    grid-area: e;
+}
+
+#calendar {
+    grid-area: c;
+    background-color: whitesmoke;
+    display: grid;
+    grid-auto-rows: 200px;
+    row-gap: 20px;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 30px;
+    overflow: scroll;
+    padding: 30px auto;
+}
+#calendar .image {
+    height: 100%;
+    overflow: hidden;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 50% 0;
+    margin-left: 30px;
+    box-sizing: border-box;
+}
+
+#calendar .image.a {
+    border: 20px solid whitesmoke;
+    background-image: url(./images/class.jpg);
+    grid-area: 1 / 1 ;
+}
+#calendar .image.b {
+    border: 20px solid whitesmoke;
+    background-image: url(./images/mats.jpg);
+    grid-area: 2 / 1 ;
+}
+#calendar .image.c {
+    border: 20px solid whitesmoke;
+    background-image: url(./images/sunrise.jpg);
+    grid-area: 3 / 1 ;
+}
+#calendar .image.d {
+    border: 20px solid whitesmoke;
+    background-image: url(./images/stretch.jpg);
+    grid-area: 4 / 1 ;
+}
+#calendar .text {
+    display: block;
+    align-content: center; 
+    color: black;
+    border-bottom: 1px solid gray;
+}
+#calendar .text .a {
+    margin-top: 20px;
+    grid-area: 1 / 2 ;
+}
+#calendar .text .b {
+    grid-area: 2 / 2 ;
+}
+#calendar .text .c {
+    grid-area: 3 / 2 ;
+}
+#calendar .text .d {
+    grid-area: 4 / 2 ;
+}
+
+@media only screen and (max-width: 900px) {
+    #events {
+        text-align: center;
+        display: grid;
+        grid-template-rows: 2fr 8fr 1fr;
+        grid-template-columns: 1fr 8fr 1fr;
+        grid-template-areas: ". e ."
+                             ". c ."
+                             ". . .";
+    }
+    #events .med-heading {
+        font-size: 2rem;
+    }
+    #calendar {
+        text-align: left;
+    }
+}
+/* Guide */
+#guide {
+    height: 30%;
+    background-image: url(./images/beginners.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: block;
+    text-align: center;
+    box-sizing: border-box;
+    padding-top: 15%;
+}
+
+#guide a:hover {
+    color: tomato;
+}
+@media only screen and (max-width: 900px) {
+    #guide{
+       padding-top: 30%; 
+    }
+    #guide .lrg-heading {
+        font-size: 3rem;
+    }
+}
+/* footer */
+footer {
+    display: block;
+    align-items: center;
+    text-align: center;
+    padding-bottom: 5px;
+}
