@@ -70,6 +70,9 @@ header li {
     display: inline;
     margin-right: 10px;
 }
+header li:hover {
+    color: darkgrey;
+}
 header a {
     text-decoration: none;
     color: white;
